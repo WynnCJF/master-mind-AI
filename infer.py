@@ -960,6 +960,12 @@ color_map = {
 
 if __name__ == "__main__":
     # random.seed(13)
+    intro_str = " ".join([color_map[c] for c in color_set])
+    print(f"Think of 4 colors from the list: {intro_str}")
+    print("After each of my guess, tell the the number of colors I get correct.\n")
+    
+    input("Press ENTER to start.\n")
+    
     round = 0
     assume_correct = []
     assume_incorrect = []
@@ -967,7 +973,7 @@ if __name__ == "__main__":
     corrects = []
     first_guess = random.sample(color_set, 4)
     first_guess_str = " ".join([color_map[c] for c in first_guess])
-    score = int(input(f'Guess: {first_guess_str}\nScore: '))
+    score = int(input(f'\nGuess: {first_guess_str}\nScore: '))
     guesses.append(first_guess)
     corrects.append(score)
     analyze_color(guesses=guesses,
@@ -993,7 +999,7 @@ if __name__ == "__main__":
                                                  4:len(others)]
 
         next_guess_str = " ".join([color_map[c] for c in next_guess])
-        next_score = int(input(f'Guess: {next_guess_str}\nScore: '))
+        next_score = int(input(f'\nGuess: {next_guess_str}\nScore: '))
         
         guesses.append(next_guess)
         corrects.append(next_score)
@@ -1011,4 +1017,4 @@ if __name__ == "__main__":
         round += 1
 
     correct_sol_str = " ".join([color_map[c] for c in guesses[round - 1]])
-    print("All correct, solution:", correct_sol_str)
+    print("\nAll correct, the chosen colors are:", correct_sol_str)
