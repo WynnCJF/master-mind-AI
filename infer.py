@@ -994,7 +994,7 @@ if __name__ == "__main__":
 
     while corrects[round - 1] < 4:
         next_guess = assume_correct + others[:4 - len(assume_correct)]
-        if next_guess == guesses[round - 1]:
+        if set(next_guess) == set(guesses[round - 1]):
             next_guess = assume_correct + others[len(assume_correct) -
                                                  4:len(others)]
 
